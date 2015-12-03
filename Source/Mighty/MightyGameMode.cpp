@@ -4,5 +4,7 @@
 #include "MightyGameMode.h"
 
 
+AMightyGameMode::AMightyGameMode()
+{
 
-
+}

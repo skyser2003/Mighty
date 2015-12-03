@@ -12,8 +12,9 @@ UCLASS()
 class MIGHTY_API AMightyGameMode : public AGameMode
 {
 	GENERATED_BODY()
-	
-	
-	
+
+public:
+	AMightyGameMode();
+
 	
 };
