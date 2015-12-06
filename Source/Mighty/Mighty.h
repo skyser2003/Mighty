@@ -13,5 +13,4 @@
 #include <deque>
 #include <algorithm>
 
-#define libMighty_EXPORTS
 #include "libMighty.h"
