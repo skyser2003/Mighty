@@ -21,8 +21,7 @@ public class Mighty : ModuleRules {
         PrivateDependencyModuleNames.AddRange(new string[] { });
 
         LoadLibMighty(Target);
-
-
+        
         // Uncomment if you are using Slate UI
         // PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
 
