@@ -28,7 +28,7 @@ void ACard::BeginPlay()
 {
 	Super::BeginPlay();
 
-	SetImage("jb");
+//	SetImage("jb");
 }
 
 // Called every frame
@@ -39,11 +39,22 @@ void ACard::Tick(float DeltaTime)
 
 void ACard::SetImage(const std::string& imgName)
 {
+	std::string texName = "/Game/Resources/card_images/" + imgName + "." + imgName;
 	std::string resourceName = "/Game/Resources/card_images/" + imgName + "_sprite." + imgName + "_sprite";
+
+	auto texFs = FString(texName.c_str());
 	auto fs = FString(resourceName.c_str());
 
-	auto* obj = static_cast<UPaperSprite*>(StaticLoadObject(UPaperSprite::StaticClass(), nullptr,
-		*fs, TEXT("")));
+	auto* tex = static_cast<UTexture2D*>(StaticLoadObject(UTexture2D::StaticClass(), nullptr, *texFs, TEXT("")));
 
-	spriteComp->SetSprite(obj);
+	FSpriteAssetInitParameters params;
+	params.SetTextureAndFill(tex);
+
+	auto* sprite = static_cast<UPaperSprite*>(StaticConstructObject(UPaperSprite::StaticClass(), spriteComp));
+	sprite->InitializeSprite(params);
+
+// 	auto* obj = static_cast<UPaperSprite*>(StaticLoadObject(UPaperSprite::StaticClass(), nullptr,
+// 		*fs, TEXT("")));
+
+	spriteComp->SetSprite(sprite);
 }
