@@ -22,6 +22,8 @@ public:
 	// Called every frame
 	virtual void Tick( float DeltaSeconds ) override;
 
+	void SetImage(const std::string& imgName);
+
 private:
 	UPaperSpriteComponent* spriteComp = nullptr;
 };

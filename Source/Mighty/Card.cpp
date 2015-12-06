@@ -10,7 +10,7 @@
 // Sets default values
 ACard::ACard()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	RootComponent = spriteComp = CreateDefaultSubobject<UPaperSpriteComponent>(TEXT("PrimarySprite"));
@@ -20,7 +20,6 @@ ACard::ACard()
 	{
 		auto* sprite = (UPaperSprite*)Material.Object;
 		spriteComp->SetSprite(sprite);
-
 	}
 }
 
@@ -29,14 +28,22 @@ void ACard::BeginPlay()
 {
 	Super::BeginPlay();
 
-	auto* obj = static_cast<UPaperSprite*>(StaticLoadObject(UPaperSprite::StaticClass(), nullptr, TEXT("/Game/Resources/card_images/jb_sprite.jb_sprite"), TEXT("")));
-	spriteComp->SetSprite(obj);
+	SetImage("jb");
 }
 
 // Called every frame
-void ACard::Tick( float DeltaTime )
+void ACard::Tick(float DeltaTime)
 {
-	Super::Tick( DeltaTime );
-
+	Super::Tick(DeltaTime);
 }
 
+void ACard::SetImage(const std::string& imgName)
+{
+	std::string resourceName = "/Game/Resources/card_images/" + imgName + "_sprite." + imgName + "_sprite";
+	auto fs = FString(resourceName.c_str());
+
+	auto* obj = static_cast<UPaperSprite*>(StaticLoadObject(UPaperSprite::StaticClass(), nullptr,
+		*fs, TEXT("")));
+
+	spriteComp->SetSprite(obj);
+}
