@@ -14,4 +14,4 @@
 #include <algorithm>
 
 #define libMighty_EXPORTS
-#include "LibMighty.h"
+#include "libMighty.h"
