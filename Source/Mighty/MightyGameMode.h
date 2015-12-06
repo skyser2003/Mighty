@@ -16,5 +16,6 @@ class MIGHTY_API AMightyGameMode : public AGameMode
 public:
 	AMightyGameMode();
 
-	
+	virtual void InitGameState() override;
+
 };
