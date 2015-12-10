@@ -5,7 +5,7 @@
 
 #include "Card.h"
 
-AMightyGameMode::AMightyGameMode()
+AMightyGameMode::AMightyGameMode() : game(new Mighty::Game())
 {
 }
 
@@ -22,5 +22,7 @@ void AMightyGameMode::InitGameState()
 		card->SetImage(imgName);
 		card->SetActorLocation(FVector(i * 50, -200, 100));
 		++i;
+
+		cardImageList[type] = card;
 	}
 }
