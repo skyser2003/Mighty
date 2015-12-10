@@ -27,8 +27,6 @@ ACard::ACard()
 void ACard::BeginPlay()
 {
 	Super::BeginPlay();
-
-//	SetImage("jb");
 }
 
 // Called every frame
@@ -52,9 +50,6 @@ void ACard::SetImage(const std::string& imgName)
 
 	auto* sprite = static_cast<UPaperSprite*>(StaticConstructObject(UPaperSprite::StaticClass(), spriteComp));
 	sprite->InitializeSprite(params);
-
-// 	auto* obj = static_cast<UPaperSprite*>(StaticLoadObject(UPaperSprite::StaticClass(), nullptr,
-// 		*fs, TEXT("")));
 
 	spriteComp->SetSprite(sprite);
 }
