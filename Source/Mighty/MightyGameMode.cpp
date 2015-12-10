@@ -11,6 +11,7 @@ AMightyGameMode::AMightyGameMode()
 
 void AMightyGameMode::InitGameState()
 {
+	int i = 0;
 	for (auto type : Mighty::CardTypes())
 	{
 		const auto location = FVector(0.0f, 0.0f, 0.f);
@@ -19,5 +20,7 @@ void AMightyGameMode::InitGameState()
 		auto* card = GetWorld()->SpawnActor<ACard>(location, FRotator(0, 0, 0));
 		std::string imgName = Mighty::Util::GetCardResourceName(type);
 		card->SetImage(imgName);
+		card->SetActorLocation(FVector(i * 50, -200, 100));
+		++i;
 	}
 }
