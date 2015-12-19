@@ -53,3 +53,13 @@ void ACard::SetImage(const std::string& imgName)
 
 	spriteComp->SetSprite(sprite);
 }
+
+int ACard::GetWidth() const
+{
+	return spriteComp->GetSprite()->GetSourceSize().X;
+}
+
+int ACard::GetHeight() const
+{
+	return spriteComp->GetSprite()->GetSourceSize().Y;
+}

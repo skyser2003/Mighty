@@ -24,6 +24,9 @@ public:
 
 	void SetImage(const std::string& imgName);
 
+	int GetWidth() const;
+	int GetHeight() const;
+
 private:
 	UPaperSpriteComponent* spriteComp = nullptr;
 };
