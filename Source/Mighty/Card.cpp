@@ -48,7 +48,7 @@ void ACard::SetImage(const std::string& imgName)
 	FSpriteAssetInitParameters params;
 	params.SetTextureAndFill(tex);
 
-	auto* sprite = static_cast<UPaperSprite*>(StaticConstructObject(UPaperSprite::StaticClass(), spriteComp));
+	auto* sprite = NewObject<UPaperSprite>(spriteComp, UPaperSprite::StaticClass());
 	sprite->InitializeSprite(params);
 
 	spriteComp->SetSprite(sprite);
